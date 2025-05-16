@@ -5,9 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MacroMechanicsHub"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button x:Name="BtnCaptureMapRegion" Content="CAPTURAR REGION DEL MAPA" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="37" Width="219" Click="Button_Click"/>
+        Title="MainWindow" Height="600" Width="800" ResizeMode="CanMinimize" Padding="10,10,10,10">
+    <Grid Background="#FF0A0A0A" UseLayoutRounding="True">
+
+        <StackPanel Orientation="Vertical" Margin="5,5,5,5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Label x:Name="Title" Content="Macro&#xA;Mechanics" Background="Transparent" Foreground="White" FontFamily="{DynamicResource InterFont}" FontWeight="Bold" FontSize="24" VerticalAlignment="Top"/>
+
+        </StackPanel>
+        <StackPanel Margin="150,15,15,15">
+
+            <Border x:Name="Hero" BorderBrush="Black" BorderThickness="1" Background="#FF7D7D7D" CornerRadius="8,8,8,8" Padding="10,10,10,10" Margin="5,5,5,5" VerticalAlignment="Center">
+                <StackPanel>
+                    <Label x:Name="Subtitle" Content="Asistente de Minimapa" FontFamily="{DynamicResource InterFont}" FontWeight="Bold" Foreground="White" FontSize="18"/>
+                    <Label x:Name="Summary" Content="Mejora tu juego con nuestro asistente de minimapa. Captura regiones especificas y obtén&#xA;ventaja competitiva." Foreground="#D7FFFFFF" FontFamily="{DynamicResource InterFont}" Opacity="0.75"/>
+                    <Button x:Name="BtnCaptureMapRegion" Content="CAPTURAR REGION DEL MAPA" Click="Button_Click" Background="#FFCC7171" Foreground="White" FontFamily="{DynamicResource InterFont}" HorizontalAlignment="Right" Padding="10,5,10,5" UseLayoutRounding="True" BorderBrush="#FF732B2B" FontWeight="Bold">
+                        <Button.FocusVisualStyle>
+                            <Style>
+                                
+                            </Style>
+                        </Button.FocusVisualStyle>
+                    </Button>
+
+                </StackPanel>
+            </Border>
+            <Label x:Name="LabelLog" Content="Últimos registros" Foreground="White" FontFamily="{DynamicResource InterFont}" Margin="5,5,5,5"/>
+            <TextBlock x:Name="Logs" TextWrapping="Wrap" Foreground="#FF7F7F7F" Background="#FF232323" Margin="5,5,5,5" FontFamily="{DynamicResource InterFont}" Padding="5,5,5,5" UseLayoutRounding="True" MaxHeight="400"/>
+
+        </StackPanel>
 
     </Grid>
 </Window>

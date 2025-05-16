@@ -186,6 +186,8 @@ namespace MacroMechanicsHub
                 }
 
                 bmp.Save(SS_PATH, System.Drawing.Imaging.ImageFormat.Png);
+
+                AddMessageToLog("Captura del minimapa realizada");
             }
         }
 
@@ -211,6 +213,7 @@ namespace MacroMechanicsHub
         private void RefreshMapRegion()
         {
             this.MapRegion = GetMapRegionFromFile();
+            AddMessageToLog("Región del mapa actualizada desde el archivo.");
         }
 
         private void SaveMapRegionToFile(Rect region)
@@ -257,6 +260,20 @@ namespace MacroMechanicsHub
 
                 return new Rect(x, y, width, height);
             }
+        }
+
+        private void AddMessageToLog(string message)
+        {
+            // Aquí puedes implementar la lógica para agregar mensajes al log
+            Logs.Text += $"{DateTime.Now}: {message}\n";
+            Logs.Text += $"{DateTime.Now}: {message}\n";
+            Logs.Text += $"{DateTime.Now}: {message}\n";
+            Logs.Text += $"{DateTime.Now}: {message}\n";
+            Logs.Text += $"{DateTime.Now}: {message}\n";
+            Logs.Text += $"{DateTime.Now}: {message}\n";
+            Logs.Text += $"{DateTime.Now}: {message}\n";
+            Logs.Text += $"{DateTime.Now}: {message}\n";
+
         }
     }
 }
