@@ -59,6 +59,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Services\CaptureService.cs" />
+    <Compile Include="Services\FileService.cs" />
+    <Compile Include="Services\NotificacionService.cs" />
+    <Compile Include="Services\RegionService.cs" />
     <Page Include="Components\RegionSelectorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

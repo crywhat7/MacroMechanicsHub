@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace MacroMechanicsHub.Models
 {
-    internal class CaptureRegion
+    public class CaptureRegion
     {
-        public int Width { get; set; }
-        public int Height { get; set; }
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Width { get; set; }
+        public double Height { get; set; }
+
+        public bool IsValid()
+        {
+            return Width > 0 && Height > 0 && X >= 0 && Y >= 0;
+        }
     }
 }
