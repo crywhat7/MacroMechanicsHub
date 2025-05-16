@@ -1,0 +1,30 @@
+﻿<Window x:Class="MacroMechanicsHub.Components.RegionSelectorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Topmost="True"
+        WindowState="Maximized">
+    <Grid>
+        <!-- Máscara para oscurecer el área fuera del rectángulo -->
+        <Canvas Name="MaskCanvas" Background="#80000000" />
+
+        <!-- Canvas para dibujar el rectángulo de selección -->
+        <Canvas Name="SelectionCanvas" Background="Transparent"
+                MouseDown="Canvas_MouseDown"
+                MouseMove="Canvas_MouseMove"
+                MouseUp="Canvas_MouseUp" />
+
+        <!-- Botón para confirmar la selección -->
+        <Button Name="ConfirmButton"
+                Content="Confirmar"
+                Visibility="Collapsed"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Margin="0,0,0,50"
+                Width="100"
+                Height="30"
+                Click="ConfirmButton_Click" />
+    </Grid>
+</Window>
