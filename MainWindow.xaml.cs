@@ -29,6 +29,8 @@ namespace MacroMechanicsHub
         private readonly CaptureService _captureService = new CaptureService();
         private readonly RegionService _regionService = new RegionService();
         private readonly FileService _fileService = new FileService();
+        private readonly LoLApiService _lolApiService = new LoLApiService();
+        private readonly AssistantService _assistantService = new AssistantService();
         private NotificacionService _notificacionService;
 
         public MainWindow()
@@ -84,7 +86,35 @@ namespace MacroMechanicsHub
             _logicRunning = true;
             _captureService.CaptureRegion(_mapRegion, ScreenshotPath);
             Log("Captura del minimapa realizada");
+            bool isApiAvailable = _lolApiService.IsApiAvailable();
+
+            if (!isApiAvailable)
+            {
+                Log("API no disponible");
+                _notificacionService.ShowNotification("API no disponible", "La API de LoL no está disponible.");
+                _logicRunning = false;
+                return;
+            }
+
+            SetPromptForIA();
+
             _logicRunning = false;
+        }
+
+        private void SetPromptForIA()
+        {
+            var prompt = _assistantService.GetAssistantResponse();
+            if (prompt != null)
+            {
+                Log("Respuesta de IA obtenida");
+                _notificacionService.ShowNotification("Respuesta de IA", "Si");
+            }
+            else
+            {
+                Log("No se pudo obtener la respuesta de IA");
+                _notificacionService.ShowNotification("Error", "No se pudo obtener la respuesta de IA.");
+
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
